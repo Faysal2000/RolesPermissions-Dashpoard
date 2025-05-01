@@ -1,6 +1,13 @@
 <?php
+
+use App\Livewire\Products\ProductCreate;
+use App\Livewire\Products\ProductEdit;
+use App\Livewire\Products\ProductIndex;
+use App\Livewire\Products\ProductShow;
 use App\Livewire\Users\UserCreate;
 use App\Livewire\Users\UserEdit;
+use App\Livewire\Users\UserShow;
+
 use App\Livewire\Users\UserIndex;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -12,6 +19,16 @@ Route::get('/', function () {
 Route::get("users", UserIndex::class )->name("users.index");
 Route::get("users/create", UserCreate::class )->name("users.create");
 Route::get("users/{id}/edit", UserEdit::class )->name("users.edit");
+Route::get("users/{id}", UserShow::class )->name("users.show");
+
+
+
+
+Route::get("products", ProductIndex::class )->name("products.index");
+Route::get("products/create", ProductCreate::class )->name("products.create");
+Route::get("products/{id}/edit", ProductEdit::class )->name("products.edit");
+Route::get("products/{id}", ProductShow::class )->name("products.show");
+
 
 
 Route::view('dashboard', 'dashboard')

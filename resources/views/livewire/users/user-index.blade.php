@@ -44,7 +44,11 @@
                             <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{$user->email}}</td>
                             
                             <td class="px-6 py-2">
-                                <a href="{{route("users.edit" ,$user->id)}}" class="cursor-pointer px-3 py-2 text-xs font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600">
+                                <a href="{{route("users.show" ,$user->id)}}" class=" mr-2 cursor-pointer px-3 py-2 text-xs font-medium text-white bg-gray-600 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600">
+                                    Show
+                                </a>
+
+                                <a href="{{route("users.edit" ,$user->id)}}" class=" mr-2 cursor-pointer px-3 py-2 text-xs font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600">
                                     Edit
                                 </a>
                                 <button wire:click="delete({{$user->id}})" wire:confirm="Are you sure to remove the user?" class="cursor-pointer px-3 py-2 text-xs font-medium text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600">

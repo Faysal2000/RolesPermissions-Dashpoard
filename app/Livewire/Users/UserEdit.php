@@ -47,7 +47,7 @@ class UserEdit extends Component
         ]);
 
         $this->user->name=$this->name;
-        $this->user->email=$this->email;
+        $this->user->email=$this->email;    
         if($this->password){
             $this->user->password=Hash::make($this->password);
 

@@ -20,7 +20,8 @@ class UserIndex extends Component
         $user=User::find($id);
         $user->delete();
 
-    }
+        session()->flash("success ","User Deleted.");
 
+    }
 
 }

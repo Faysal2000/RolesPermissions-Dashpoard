@@ -4,6 +4,8 @@ namespace App\Livewire\Users;
 
 use Livewire\Component;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class UserEdit extends Component
 {
     public $user,$name,$email,$password,$confirm_password;
@@ -18,5 +20,40 @@ class UserEdit extends Component
     public function render()
     {
         return view('livewire.users.user-edit');
+    }
+
+
+
+    public function submit(){
+
+
+
+        /*  dd([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
+            'confirm_password' => $this->confirm_password,
+        ]);
+
+        */
+
+
+        $this->validate([
+
+            "name"=>"required",
+            "email"=>"required |email",
+            "password"=> "same:confirm_password",
+
+        ]);
+
+        $this->user->name=$this->name;
+        $this->user->email=$this->email;
+        if($this->password){
+            $this->user->password=Hash::make($this->password);
+
+        }
+        $this->user->save();
+        
+        return to_route("users.index")->with("success","User Updated."); 
     }
 }

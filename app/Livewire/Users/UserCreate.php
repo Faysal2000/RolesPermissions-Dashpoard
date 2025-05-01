@@ -20,21 +20,26 @@ class UserCreate extends Component
 
 
 
-        dd([
+        /*  dd([
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
             'confirm_password' => $this->confirm_password,
         ]);
 
+        */
+
 
         $this->validate([
 
             "name"=>"required",
             "email"=>"required |email",
-            "password"=> "required|same:confirm_password",
+            "password"=> "require|same:confirm_password",
 
         ]);
+
+
+        
         User::create([
             "name"=>$this->name,
             "email"=>$this->email,
@@ -43,4 +48,7 @@ class UserCreate extends Component
         ]);
         return to_route("users.index")->with("success","User Created."); 
     }
+
 }
+
+
